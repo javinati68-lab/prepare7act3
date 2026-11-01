@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Rocha’s English Class: Prepare 7 Activity 3</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for graphs and charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'shiny-blue': '0 0 12px rgba(59, 130, 246, 0.8)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .shiny-input {
+            border: 2px solid #3b82f6 !important;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.7) !important;
+            transition: all 0.3s ease;
+        }
+        .shiny-input:focus {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 1) !important;
+            outline: none;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                margin: 0;
+                padding: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #results-section {
+                display: block !important;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .print-break {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen font-sans pb-12">
+
+    <!-- Navbar & Controls (No Print) -->
+    <nav class="no-print sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md p-4 flex flex-wrap justify-between items-center transition-colors">
+        <h1 class="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400">
+            <i class="fa-solid fa-book-open mr-2"></i>Mr. Rocha’s English Class: Prepare 7 Activity 3
+        </h1>
+        <button id="theme-toggle" class="mt-2 md:mt-0 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full font-semibold focus:outline-none hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <span class="dark:hidden">Dark Mode</span>
+            <i class="fa-solid fa-sun hidden dark:inline"></i>
+            <span class="hidden dark:inline">Light Mode</span>
+        </button>
+    </nav>
+
+    <!-- Progress Bar (No Print) -->
+    <div class="no-print w-full bg-gray-200 dark:bg-gray-700 h-2 mt-2">
+        <div id="progress-bar" class="bg-blue-600 h-2 transition-all duration-500" style="width: 20%;"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto p-4 md:p-6 mt-4">
+        
+        <!-- User Info Section -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 no-print transition-colors">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block font-semibold mb-2">Student Name:</label>
+                    <input type="text" id="student-name" placeholder="Type your name..." class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white placeholder-gray-500 dark:placeholder-gray-400">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-2">Select Date:</label>
+                    <input type="date" id="student-date" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white">
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 1: Introduction & Notes -->
+        <section id="section-1" class="activity-section bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 transition-colors">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400">Introduction & Activity 1: Writing an Essay</h2>
+            
+            <!-- Image1 (Only in intro) -->
+            <div class="text-center mb-6">
+                <img src="Image1.png" alt="Activity 1 Introduction Image" onerror="this.onerror=null; this.src='https://placehold.co/600x300/2563eb/ffffff?text=Introduction+Image+(Image1.png)';" class="max-w-full h-auto rounded shadow-md mx-auto">
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg mb-6 text-sm md:text-base border border-blue-200 dark:border-blue-800">
+                <p class="font-bold">Prompt:</p>
+                <p class="italic mt-1">"Young people today want to be rich and famous as a result of watching reality TV and talent shows, but they should have more realistic ambitions." Do you agree?</p>
+            </div>
+
+            <p class="mb-4">Your teacher has asked you to write an essay for homework. Make notes below about points 1 to 3.</p>
+            
+            <button onclick="toggleModal('modal-act1')" class="mb-4 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-bold shadow-md transition-colors">
+                <i class="fa-solid fa-lightbulb mr-1"></i> Show Suggestions
+            </button>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-semibold mb-1">1. Why reality TV and talent shows are popular:</label>
+                    <textarea id="act1-q1" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">2. How they affect young people:</label>
+                    <textarea id="act1-q2" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">3. Your own idea:</label>
+                    <textarea id="act1-q3" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4 justify-between items-center">
+                <button onclick="checkActivity1()" id="btn-check-act1" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors">Check Answers</button>
+                <div id="feedback-act1" class="font-bold hidden"></div>
+                <button onclick="nextSection(2)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors ml-auto">Next Activity <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- ACTIVITY 2: Examples (Fill in the blanks) -->
+        <section id="section-2" class="activity-section hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 transition-colors">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400">Activity 2: Examples</h2>
+            
+            <p class="mb-4">Here are the first two paragraphs of the essay. Complete the text with the correct expressions from the dropdowns.</p>
+            
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-6 leading-loose text-lg border border-gray-300 dark:border-gray-600">
+                <p class="mb-4">
+                    Reality TV and talent shows are not exactly educational. 
+                    <select id="act2-drop1" class="p-1 rounded shiny-input bg-white dark:bg-gray-800 dark:text-white font-semibold cursor-pointer">
+                        <option value="">--Select--</option>
+                        <option value="for instance">For instance</option>
+                        <option value="furthermore">Furthermore</option>
+                        <option value="however">However</option>
+                        <option value="most people agree">Most people agree</option>
+                    </select>, they are not intended to be. They are just for entertainment, and 
+                    <select id="act2-drop2" class="p-1 rounded shiny-input bg-white dark:bg-gray-800 dark:text-white font-semibold cursor-pointer">
+                        <option value="">--Select--</option>
+                        <option value="for instance">for instance</option>
+                        <option value="furthermore">furthermore</option>
+                        <option value="however">however</option>
+                        <option value="most people agree">most people would agree</option>
+                    </select>, that they are very entertaining. This is why they are so popular - people just want to forget about their problems and relax in front of the TV!
+                </p>
+                <p>
+                    Nevertheless, some people say they are a bad influence. 
+                    <select id="act2-drop3" class="p-1 rounded shiny-input bg-white dark:bg-gray-800 dark:text-white font-semibold cursor-pointer">
+                        <option value="">--Select--</option>
+                        <option value="for instance">For instance</option>
+                        <option value="furthermore">Furthermore</option>
+                        <option value="however">However</option>
+                        <option value="most people agree">Most people agree</option>
+                    </select>, many teachers have noted that their students have unrealistic ideas about their future. They just want to be rich and famous. 
+                    <select id="act2-drop4" class="p-1 rounded shiny-input bg-white dark:bg-gray-800 dark:text-white font-semibold cursor-pointer">
+                        <option value="">--Select--</option>
+                        <option value="for instance">For instance</option>
+                        <option value="furthermore">Furthermore</option>
+                        <option value="however">However</option>
+                        <option value="most people agree">Most people agree</option>
+                    </select>, some young people do not care about their schoolwork because they believe you don't need qualifications to be a pop star!
+                </p>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4 justify-between items-center">
+                <button onclick="prevSection(1)" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button onclick="checkActivity2()" id="btn-check-act2" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors">Check Answers</button>
+                <div id="feedback-act2" class="font-bold hidden w-full md:w-auto text-center"></div>
+                <button onclick="nextSection(3)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors ml-auto">Next Activity <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- ACTIVITY 3: Planning -->
+        <section id="section-3" class="activity-section hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 transition-colors">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400">Activity 3: Planning</h2>
+            
+            <p class="mb-4 text-lg">Complete the plan with notes from the box below. For 2, use the text in Exercise 2.</p>
+
+            <div class="mb-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-inner flex flex-wrap gap-2 justify-center italic text-sm md:text-base">
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">another idea of your own</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">not educational</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">stop caring about schoolwork</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">summary of the points made</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">unrealistic ideas about the future</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">relaxing</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">harmless fun</span>
+                <span class="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">your conclusion</span>
+            </div>
+            
+            <button onclick="toggleModal('modal-act3')" class="mb-6 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-bold shadow-md transition-colors">
+                <i class="fa-solid fa-lightbulb mr-1"></i> Show Suggestions
+            </button>
+
+            <div class="space-y-5 text-lg">
+                <div class="flex flex-col">
+                    <label class="font-bold mb-1">1 Introduction</label>
+                    <div class="p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 cursor-not-allowed">not educational</div>
+                </div>
+                <div class="flex flex-col">
+                    <label class="font-bold mb-1">2 Paragraph 2 - effects on young people</label>
+                    <textarea id="act3-q2" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+                <div class="flex flex-col">
+                    <label class="font-bold mb-1">3 Paragraph 3 - another angle</label>
+                    <textarea id="act3-q3" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+                <div class="flex flex-col">
+                    <label class="font-bold mb-1">4 Conclusion - sum up the points</label>
+                    <textarea id="act3-q4" rows="2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Write your notes here..."></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4 justify-between items-center">
+                <button onclick="prevSection(2)" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button onclick="checkActivity3()" id="btn-check-act3" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors">Check Answers</button>
+                <div id="feedback-act3" class="font-bold hidden w-full md:w-auto text-center"></div>
+                <button onclick="nextSection(4)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors ml-auto">Next Activity <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- ACTIVITY 4: Writing the Essay -->
+        <section id="section-4" class="activity-section hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6 transition-colors">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2 border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400">Activity 4: Writing the Essay</h2>
+            
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg mb-6 border border-blue-200 dark:border-blue-800 text-sm md:text-base">
+                <p class="italic">"Young people today want to be rich and famous as a result of watching reality TV and talent shows, but they should have more realistic ambitions." Do you agree?</p>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-2">Step 1: Idea Generation</h3>
+                <p class="mb-4">The "Cambridge B2 First" writing paper requires candidates to give an opinion and provide reasons. Before writing the essay, answer these three questions to anchor your argument:</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-semibold mb-1">1. What is your core stance on the statement? (Agree, disagree, or partially agree)</label>
+                        <input type="text" id="act4-step1-q1" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Your stance...">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">2. What is one primary reason supporting your stance?</label>
+                        <input type="text" id="act4-step1-q2" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Your reason...">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">3. What is a specific example you can use to illustrate this reason?</label>
+                        <input type="text" id="act4-step1-q3" class="w-full p-3 rounded-lg shiny-input bg-transparent dark:text-white" placeholder="Your example...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-2">Step 2: Paragraph Structuring</h3>
+                <p class="mb-4">Essays for this exam are always written for a teacher, meaning they require a neutral or formal register and clear organization. Construct your essay using this framework:</p>
+                
+                <div class="bg-gray-100 dark:bg-gray-700 p-5 rounded-lg border border-gray-300 dark:border-gray-600">
+                    <h4 class="font-bold text-lg mb-2"><i class="fa-solid fa-list-check"></i> Cambridge B2 First (FCE): Essay Framework</h4>
+                    <p class="mb-4 text-sm md:text-base">Write 140–190 words for the whole essay, not for each paragraph. Address both given notes and a distinct idea of your own. Give a clear opinion supported by reasons. Use a neutral or formal tone.</p>
+                    
+                    <p class="font-bold underline mb-1">Suggested five-paragraph plan</p>
+                    <p class="mb-4 text-sm italic">This is a practical structure, not a compulsory exam format. The word ranges below are planning guides.</p>
+                    
+                    <ul class="space-y-4 text-sm md:text-base">
+                        <li>
+                            <strong>1. Introduction (about 25–30 words)</strong><br>
+                            Paraphrase the question and briefly state your position.<br>
+                            <span class="italic text-gray-600 dark:text-gray-400">Starter: "Reality TV and talent shows can influence young people’s ambitions. In my view, …"</span>
+                        </li>
+                        <li>
+                            <strong>2. Given point 1: Why these shows are popular (about 30–40 words)</strong><br>
+                            Make a point, explain it, and give a brief example. Possible angles: entertainment, competition or the appeal of success stories.<br>
+                            <span class="italic text-gray-600 dark:text-gray-400">Starter: "One reason these programmes attract viewers is … This is because …"</span>
+                        </li>
+                        <li>
+                            <strong>3. Given point 2: Effects on young people (about 30–40 words)</strong><br>
+                            Explain a possible effect and connect it to your opinion. Consider inspiration as well as unrealistic expectations.<br>
+                            <span class="italic text-gray-600 dark:text-gray-400">Starter: "However, these shows may … For example, …"</span>
+                        </li>
+                        <li>
+                            <strong>4. Your own idea: Realistic routes to success (about 30–40 words)</strong><br>
+                            Add a separate angle, such as the importance of education, practice and achievable goals. Explain why it matters rather than repeating point 2.<br>
+                            <span class="italic text-gray-600 dark:text-gray-400">Starter: "Another important consideration is … Therefore, …"</span>
+                        </li>
+                        <li>
+                            <strong>5. Conclusion (about 25–30 words)</strong><br>
+                            Bring the argument together and answer "Do you agree?" clearly. Do not introduce a new argument.<br>
+                            <span class="italic text-gray-600 dark:text-gray-400">Starter: "On balance, I … because …"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-2">Step 3: Self-Evaluation Check</h3>
+                <p class="mb-3">Review your completed draft against these core exam requirements:</p>
+                <ul class="list-disc pl-6 space-y-2 text-sm md:text-base">
+                    <li><strong>Content:</strong> Does the paragraph focus strictly on the prompt without including irrelevant information?</li>
+                    <li><strong>Communicative Achievement:</strong> Is the tone appropriate and effective for the target reader?</li>
+                    <li><strong>Organisation:</strong> Do the sentences flow logically using linking words and cohesive devices?</li>
+                    <li><strong>Language:</strong> Does the text demonstrate a good degree of control over grammatical forms and use everyday vocabulary appropriately?</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-3">Write your essay below.</h3>
+            
+            <button onclick="toggleSampleEssay()" class="mb-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold shadow-md transition-colors">
+                <i class="fa-solid fa-eye mr-1"></i> Toggle Sample Essay
+            </button>
+            
+            <div id="sample-essay" class="hidden mb-6 p-5 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-700 italic text-gray-800 dark:text-gray-200 shadow-inner">
+                <p class="mb-2">Reality TV and talent shows have become extremely popular. While some argue they offer harmless entertainment, they can heavily influence young people's ambitions. In my view, these programmes promote unrealistic goals.</p>
+                <p class="mb-2">One reason these shows attract viewers is the appeal of instant fame. This is because audiences enjoy watching ordinary people achieve spectacular success overnight. For instance, singing competitions often turn unknown individuals into celebrities.</p>
+                <p class="mb-2">However, these shows may negatively affect young viewers. For example, many teenagers develop unrealistic ideas about their future, believing they can become rich without putting in effort. Furthermore, some stop caring about their schoolwork, assuming education is unnecessary for success.</p>
+                <p class="mb-2">Another important consideration is that real success requires dedication and hard work. Therefore, young people should focus on building tangible skills and pursuing achievable career paths rather than relying on the slim chance of television stardom.</p>
+                <p>On balance, I agree that young people need more realistic ambitions. While talent shows are entertaining, relying on them as a career model is detrimental to a secure future.</p>
+            </div>
+
+            <textarea id="act4-essay" rows="12" class="w-full p-4 rounded-lg shiny-input bg-transparent dark:text-white leading-relaxed" placeholder="Start typing your essay here..."></textarea>
+
+            <div class="mt-6 flex flex-wrap gap-4 justify-between items-center">
+                <button onclick="prevSection(3)" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button onclick="checkActivity4()" id="btn-check-act4" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-colors">Mark as Complete</button>
+                <div id="feedback-act4" class="font-bold hidden w-full md:w-auto text-center"></div>
+                <button onclick="showResults()" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold shadow-lg transition-colors ml-auto text-lg hover:scale-105 transform"><i class="fa-solid fa-flag-checkered"></i> Submit Final</button>
+            </div>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="results-section" class="hidden bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 md:p-8 mb-6 transition-colors border-t-8 border-blue-600">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2"><i class="fa-solid fa-chart-pie mr-2"></i> Performance Report</h2>
+                <p class="text-lg" id="result-student-info"></p>
+                <div class="mt-4 p-4 rounded-lg shadow-inner inline-block" id="overall-score-container">
+                    <span class="text-xl font-bold">Overall Score:</span>
+                    <span class="text-4xl font-extrabold ml-2" id="overall-score-text">0%</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 print-break">
+                <!-- Bar Chart -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl shadow">
+                    <h3 class="text-center font-bold mb-4">Score by Activity</h3>
+                    <div class="relative h-64 w-full">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+                <!-- Doughnut Chart -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl shadow">
+                    <h3 class="text-center font-bold mb-4">Overall Completion & Accuracy</h3>
+                    <div class="relative h-64 w-full">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="print-break bg-blue-50 dark:bg-blue-900/40 p-6 rounded-xl shadow-lg border border-blue-200 dark:border-blue-700">
+                <h3 class="text-2xl font-bold mb-4 text-blue-800 dark:text-blue-300"><i class="fa-solid fa-clipboard-check mr-2"></i> 8 Specific Recommendations</h3>
+                <ul class="list-disc pl-6 space-y-3 text-lg" id="recommendations-list">
+                    <!-- JS will populate this -->
+                </ul>
+            </div>
+
+            <div class="mt-8 text-center no-print">
+                <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-bold shadow-lg transition-colors text-lg"><i class="fa-solid fa-print mr-2"></i> Print Results</button>
+                <button onclick="location.reload()" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg transition-colors text-lg ml-4"><i class="fa-solid fa-rotate-right mr-2"></i> Restart</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals -->
+    <!-- Modal Act 1 -->
+    <div id="modal-act1" class="fixed inset-0 bg-black bg-opacity-60 hidden flex justify-center items-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl max-w-lg w-full p-6 shadow-2xl">
+            <h3 class="text-2xl font-bold mb-4 text-yellow-600"><i class="fa-solid fa-lightbulb"></i> Suggestions for Activity 1</h3>
+            <ul class="list-disc pl-5 space-y-3 mb-6">
+                <li><strong>Idea 1:</strong> People enjoy watching others achieve instant success. It's a form of escapism from everyday life.</li>
+                <li><strong>Idea 2:</strong> It creates unrealistic expectations. Teenagers might think they don't need to study or work hard to succeed.</li>
+                <li><strong>Idea 3 (Own):</strong> Society needs doctors, engineers, and teachers more than celebrities. Hard work and education offer a more secure future.</li>
+            </ul>
+            <div class="text-right">
+                <button onclick="toggleModal('modal-act1')" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Act 3 -->
+    <div id="modal-act3" class="fixed inset-0 bg-black bg-opacity-60 hidden flex justify-center items-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl max-w-lg w-full p-6 shadow-2xl">
+            <h3 class="text-2xl font-bold mb-4 text-yellow-600"><i class="fa-solid fa-lightbulb"></i> Suggestions for Activity 3</h3>
+            <ul class="list-disc pl-5 space-y-3 mb-6">
+                <li><strong>Intro:</strong> relaxing, harmless fun, not educational.</li>
+                <li><strong>Paragraph 2:</strong> unrealistic ideas about the future, stop caring about schoolwork.</li>
+                <li><strong>Paragraph 3:</strong> another idea of your own (e.g. importance of real skills).</li>
+                <li><strong>Conclusion:</strong> summary of the points made, your conclusion.</li>
+            </ul>
+            <div class="text-right">
+                <button onclick="toggleModal('modal-act3')" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State
+        let currentSection = 1;
+        const totalSections = 4;
+        let scores = { act1: 0, act2: 0, act3: 0, act4: 0 };
+        let act2CorrectAnswers = ["however", "most people agree", "for instance", "furthermore"];
+        
+        // Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            htmlElement.classList.toggle('light');
+        });
+
+        // Navigation
+        function updateUI() {
+            document.querySelectorAll('.activity-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`section-${currentSection}`).classList.remove('hidden');
+            
+            const progress = (currentSection / totalSections) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextSection(step) {
+            if(step <= totalSections) {
+                currentSection = step;
+                updateUI();
+            }
+        }
+
+        function prevSection(step) {
+            if(step >= 1) {
+                currentSection = step;
+                updateUI();
+            }
+        }
+
+        // Modals
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleSampleEssay() {
+            const essay = document.getElementById('sample-essay');
+            essay.classList.toggle('hidden');
+        }
+
+        // Lock inputs function
+        function lockInputs(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.disabled = true;
+                input.classList.add('opacity-70', 'cursor-not-allowed');
+            });
+            section.querySelector('button[id^="btn-check"]').disabled = true;
+            section.querySelector('button[id^="btn-check"]').classList.add('opacity-50', 'cursor-not-allowed');
+        }
+
+        // Check Activity 1 (Completion based)
+        function checkActivity1() {
+            const q1 = document.getElementById('act1-q1').value.trim();
+            const q2 = document.getElementById('act1-q2').value.trim();
+            const q3 = document.getElementById('act1-q3').value.trim();
+            const feedback = document.getElementById('feedback-act1');
+
+            let filled = 0;
+            if(q1.length > 5) filled++;
+            if(q2.length > 5) filled++;
+            if(q3.length > 5) filled++;
+
+            if(filled === 3) {
+                scores.act1 = 100;
+                feedback.innerHTML = '<span class="text-green-500"><i class="fa-solid fa-check"></i> Great job! Notes complete.</span>';
+            } else if (filled > 0) {
+                scores.act1 = 50;
+                feedback.innerHTML = '<span class="text-yellow-500"><i class="fa-solid fa-triangle-exclamation"></i> Partially complete. Try to add more details.</span>';
+            } else {
+                scores.act1 = 0;
+                feedback.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-xmark"></i> Please write some notes before checking.</span>';
+                feedback.classList.remove('hidden');
+                return;
+            }
+            
+            feedback.classList.remove('hidden');
+            lockInputs('section-1');
+        }
+
+        // Check Activity 2 (Accuracy based)
+        function checkActivity2() {
+            let correctCount = 0;
+            const feedback = document.getElementById('feedback-act2');
+            
+            for(let i=1; i<=4; i++) {
+                const drop = document.getElementById(`act2-drop${i}`);
+                const val = drop.value;
+                if(val === act2CorrectAnswers[i-1]) {
+                    correctCount++;
+                    drop.classList.add('border-green-500', 'bg-green-100', 'dark:bg-green-900', 'text-green-800', 'dark:text-green-200');
+                    drop.classList.remove('border-blue-500');
+                } else {
+                    drop.classList.add('border-red-500', 'bg-red-100', 'dark:bg-red-900', 'text-red-800', 'dark:text-red-200');
+                    drop.classList.remove('border-blue-500');
+                }
+            }
+
+            scores.act2 = (correctCount / 4) * 100;
+
+            if(correctCount === 4) {
+                feedback.innerHTML = '<span class="text-green-500"><i class="fa-solid fa-check"></i> Perfect! 4/4 correct.</span>';
+            } else {
+                feedback.innerHTML = `<span class="text-red-500"><i class="fa-solid fa-xmark"></i> You got ${correctCount}/4 correct. Check the red boxes.</span>`;
+            }
+
+            feedback.classList.remove('hidden');
+            lockInputs('section-2');
+        }
+
+        // Check Activity 3 (Completion based)
+        function checkActivity3() {
+            const q2 = document.getElementById('act3-q2').value.trim();
+            const q3 = document.getElementById('act3-q3').value.trim();
+            const q4 = document.getElementById('act3-q4').value.trim();
+            const feedback = document.getElementById('feedback-act3');
+
+            let filled = 0;
+            if(q2.length > 5) filled++;
+            if(q3.length > 5) filled++;
+            if(q4.length > 5) filled++;
+
+            scores.act3 = (filled / 3) * 100;
+
+            if(filled === 3) {
+                feedback.innerHTML = '<span class="text-green-500"><i class="fa-solid fa-check"></i> Excellent planning!</span>';
+            } else if (filled > 0) {
+                feedback.innerHTML = '<span class="text-yellow-500"><i class="fa-solid fa-triangle-exclamation"></i> Planning partially complete.</span>';
+            } else {
+                feedback.innerHTML = '<span class="text-red-500"><i class="fa-solid fa-xmark"></i> Please add notes to the plan.</span>';
+                feedback.classList.remove('hidden');
+                return;
+            }
+            
+            feedback.classList.remove('hidden');
+            lockInputs('section-3');
+        }
+
+        // Check Activity 4 (Completion based / Word count)
+        function checkActivity4() {
+            const step1Filled = (document.getElementById('act4-step1-q1').value.trim().length > 0) && 
+                                (document.getElementById('act4-step1-q2').value.trim().length > 0) && 
+                                (document.getElementById('act4-step1-q3').value.trim().length > 0);
+            const essay = document.getElementById('act4-essay').value.trim();
+            const feedback = document.getElementById('feedback-act4');
+            const wordCount = essay.split(/\s+/).filter(word => word.length > 0).length;
+
+            if(!step1Filled) {
+                scores.act4 = 0;
+                feedback.innerHTML = `<span class="text-red-500"><i class="fa-solid fa-xmark"></i> Please answer the 3 questions in Step 1 first.</span>`;
+                feedback.classList.remove('hidden');
+                return;
+            }
+
+            if(wordCount >= 140 && wordCount <= 190) {
+                scores.act4 = 100;
+                feedback.innerHTML = `<span class="text-green-500"><i class="fa-solid fa-check"></i> Great! Word count: ${wordCount}.</span>`;
+            } else if (wordCount > 50) {
+                scores.act4 = 75; // Penalty for word count but effort shown
+                feedback.innerHTML = `<span class="text-yellow-500"><i class="fa-solid fa-triangle-exclamation"></i> Good effort. Word count: ${wordCount} (Aim for 140-190).</span>`;
+            } else {
+                scores.act4 = 0;
+                feedback.innerHTML = `<span class="text-red-500"><i class="fa-solid fa-xmark"></i> Too short. Please write more. (Current: ${wordCount} words)</span>`;
+                feedback.classList.remove('hidden');
+                return;
+            }
+
+            feedback.classList.remove('hidden');
+            lockInputs('section-4');
+        }
+
+        // Submit and Results Logic
+        function showResults() {
+            const name = document.getElementById('student-name').value.trim() || 'Student';
+            const date = document.getElementById('student-date').value || new Date().toISOString().split('T')[0];
+            
+            // Hide activities
+            document.querySelectorAll('.activity-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('results-section').classList.remove('hidden');
+            document.querySelector('.no-print.w-full.bg-gray-200').classList.add('hidden'); // Hide progress bar on submit
+            
+            window.scrollTo({ top: 0, behavior: 'instant' });
+
+            // Calculate overall score
+            const totalScore = Math.round((scores.act1 + scores.act2 + scores.act3 + scores.act4) / 4);
+            
+            document.getElementById('result-student-info').innerHTML = `<strong>Name:</strong> ${name} &nbsp; | &nbsp; <strong>Date:</strong> ${date}`;
+            
+            const scoreText = document.getElementById('overall-score-text');
+            scoreText.innerText = `${totalScore}%`;
+            const scoreContainer = document.getElementById('overall-score-container');
+            
+            if(totalScore >= 80) {
+                scoreContainer.classList.add('bg-green-100', 'text-green-800', 'dark:bg-green-900', 'dark:text-green-200');
+            } else if(totalScore >= 50) {
+                scoreContainer.classList.add('bg-yellow-100', 'text-yellow-800', 'dark:bg-yellow-900', 'dark:text-yellow-200');
+            } else {
+                scoreContainer.classList.add('bg-red-100', 'text-red-800', 'dark:bg-red-900', 'dark:text-red-200');
+            }
+
+            renderCharts();
+            generateRecommendations(totalScore);
+        }
+
+        // Chart.js rendering
+        let barChartInstance, doughnutChartInstance;
+
+        function renderCharts() {
+            // Colors
+            const colors = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+            
+            // Bar Chart
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            if(barChartInstance) barChartInstance.destroy();
+            barChartInstance = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['Act 1 (Notes)', 'Act 2 (Fill-in)', 'Act 3 (Plan)', 'Act 4 (Essay)'],
+                    datasets: [{
+                        label: 'Score %',
+                        data: [scores.act1, scores.act2, scores.act3, scores.act4],
+                        backgroundColor: colors,
+                        borderColor: '#1e3a8a',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, max: 100 } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Doughnut Chart (Average Score vs Missing)
+            const totalScore = (scores.act1 + scores.act2 + scores.act3 + scores.act4) / 4;
+            const missing = 100 - totalScore;
+            
+            const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+            if(doughnutChartInstance) doughnutChartInstance.destroy();
+            doughnutChartInstance = new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Overall Score', 'Needs Improvement'],
+                    datasets: [{
+                        data: [totalScore, missing],
+                        backgroundColor: ['#10b981', '#ef4444'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        function generateRecommendations(totalScore) {
+            const list = document.getElementById('recommendations-list');
+            list.innerHTML = ''; // Clear previous
+
+            const recs = [
+                { cond: true, text: "<strong>1. Structure:</strong> Always organize your paragraphs using the standard 5-paragraph framework (Intro, 3 Body, Conclusion)." },
+                { cond: scores.act2 < 100, text: "<strong>2. Connectors:</strong> Review linking words like <em>'However'</em> and <em>'Furthermore'</em> to smoothly connect contrasting and supporting ideas." },
+                { cond: scores.act2 === 100, text: "<strong>2. Connectors:</strong> Great job using linking words! Keep using advanced connectors to boost your Cohesion score." },
+                { cond: true, text: "<strong>3. Clarity:</strong> Ensure your introduction clearly states your stance on the prompt right away." },
+                { cond: scores.act1 < 100, text: "<strong>4. Brainstorming:</strong> Spend more time generating concrete examples (e.g., specific talent shows or career paths) to support your arguments." },
+                { cond: scores.act1 === 100, text: "<strong>4. Brainstorming:</strong> Your note-taking is solid. Always use those concrete examples in your final draft." },
+                { cond: true, text: "<strong>5. Balance:</strong> Make sure you balance recognizing the entertainment value with the realistic impacts on young audiences." },
+                { cond: scores.act4 < 100, text: "<strong>6. Length & Accuracy:</strong> Double-check your spelling, punctuation, and ensure you meet the 140-190 word count requirement." },
+                { cond: scores.act4 === 100, text: "<strong>6. Word Count:</strong> You hit the sweet spot for the word count! Keep practicing editing to maintain this precision." },
+                { cond: true, text: "<strong>7. Conclusion:</strong> Make sure your conclusion effectively summarizes your main points <em>without</em> introducing new ideas." },
+                { cond: scores.act3 < 100, text: "<strong>8. Planning:</strong> Practice outlining your 3 key ideas before writing. A good plan prevents you from getting stuck halfway through the essay." },
+                { cond: scores.act3 === 100, text: "<strong>8. Planning:</strong> Your paragraph planning skills are excellent. Stick to your plan when writing the full essay for a smooth flow." }
+            ];
+
+            let count = 0;
+            recs.forEach(r => {
+                if(r.cond && count < 8) {
+                    const li = document.createElement('li');
+                    li.innerHTML = r.text;
+                    list.appendChild(li);
+                    count++;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
